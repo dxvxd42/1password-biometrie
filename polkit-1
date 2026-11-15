@@ -1,0 +1,8 @@
+#%PAM-1.0
+# Admin-/1Password-Abfragen: erst Gesicht (Howdy), dann Fingerabdruck, dann Passwort
+auth       sufficient   pam_howdy.so
+auth       sufficient   pam_fprintd.so
+auth       include      system-auth
+account    include      system-auth
+password   include      system-auth
+session    include      system-auth
