@@ -3,8 +3,7 @@
 set -uo pipefail
 systemctl --user disable --now 1password-biometrie.path 1password-biometrie.service 2>/dev/null
 rm -f ~/.config/systemd/user/1password-biometrie.{service,path} ~/.local/bin/1password-biometrie \
-      ~/.local/share/applications/com.onepassword.OnePassword.desktop \
-      ~/.config/autostart/1password-autostart.desktop
+      ~/.local/share/applications/com.onepassword.OnePassword.desktop
 systemctl --user daemon-reload
 sudo systemctl disable --now 1password-biometrie-system.path 2>/dev/null
 sudo rm -f /etc/systemd/system/1password-biometrie-system.{service,path} /etc/pacman.d/hooks/96-1password-biometrie.hook \
