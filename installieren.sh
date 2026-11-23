@@ -10,6 +10,9 @@ install -Dm644 user/1password-biometrie.path    ~/.config/systemd/user/1password
 systemctl --user daemon-reload
 systemctl --user enable --now 1password-biometrie.path
 systemctl --user enable 1password-biometrie.service
+# 1Password bei der Anmeldung unsichtbar starten (Passwort dann nur einmal pro Hochfahren)
+mkdir -p ~/.config/autostart
+sed "s|__HOME__|$HOME|" user/1password-autostart.desktop > ~/.config/autostart/1password-autostart.desktop
 
 echo "== Systemteil (sudo)"
 tmp=$(mktemp)
